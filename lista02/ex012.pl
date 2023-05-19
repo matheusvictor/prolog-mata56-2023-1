@@ -31,6 +31,6 @@ eh_presa(X, Y) :-
 
 cadeia_alimentar(X) :-
     (eh_predador(X, A) -> 
-    	write(X), write(' --> '), writeln(A);
-    	write(X), writeln(' não tem presa.'), fail),
+    	write(X), write(' --> ');
+    	write(X), write(' --> '), writeln(' não tem presa.'), fail),
     cadeia_alimentar(A).
