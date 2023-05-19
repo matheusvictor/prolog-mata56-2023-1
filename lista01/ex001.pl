@@ -1,0 +1,2 @@
+%fatos
+pai(m, b).  
