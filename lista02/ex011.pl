@@ -10,13 +10,13 @@ nasceu_em(maria, maceio).
 nasceu_em(giuseppe, roma).
 
 %regras
-localizado_em_recursao(X, Y) :-
-    localizado_em(X, Y).
+localizado_em_recursao(Local, Regiao) :-
+    localizado_em(Local, Regiao).
 
-localizado_em_recursao(X, Y) :-
-    localizado_em(X, Z),
-    localizado_em_recursao(Z, Y).
+localizado_em_recursao(Local, Regiao) :-
+    localizado_em(Local, Zona),
+    localizado_em_recursao(Zona, Regiao).
 
-nasceu_em_recursao(P, R) :-
-    localizado_em_recursao(O, R),
-    nasceu_em(P, O).
+nasceu_em_recursao(Pessoa, Regiao) :-
+    localizado_em_recursao(Local, Regiao),
+    nasceu_em(Pessoa, Local).
