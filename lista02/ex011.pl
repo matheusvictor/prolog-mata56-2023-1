@@ -16,7 +16,10 @@ localizado_em_recursao(Local, Regiao) :-
 localizado_em_recursao(Local, Regiao) :-
     localizado_em(Local, Zona),
     localizado_em_recursao(Zona, Regiao).
-
+    
+nasceu_em_recursao(Pessoa, Regiao) :-
+    nasceu_em(Pessoa, Regiao).
+    
 nasceu_em_recursao(Pessoa, Regiao) :-
     localizado_em_recursao(Local, Regiao),
     nasceu_em(Pessoa, Local).
