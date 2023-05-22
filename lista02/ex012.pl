@@ -24,10 +24,16 @@ come(veado, grama).
 come(urso, guaxinim).
 
 
-cadeia_alimentar(Predador, Presa):-
+cadeia_alimentar(Predador):-
+	(come(Predador, Presa) -> 
+    	write(Predador), write(' --> ');
+    	write(Predador), write(' --> '), writeln(' não tem presa.'), fail),
+    cadeia_alimentar(Presa).
+    
+cadeia_alimentar_2_param(Predador, Presa):-
 	come(Predador, Presa),
     write(Predador), write(' --> '), writeln(Presa).
 	
-cadeia_alimentar(Predador, Presa2):-
+cadeia_alimentar_2_param(Predador, Presa2):-
     come(Predador, Presa),
     cadeia_alimentar(Presa, Presa2).
