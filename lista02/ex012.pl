@@ -23,14 +23,17 @@ come(coelho, grama).
 come(veado, grama).
 come(urso, guaxinim).
 
-eh_predador(X, Y) :-
-    come(X, Y).
 
-eh_presa(X, Y) :-
-    come(Y, X).
-
-cadeia_alimentar(X) :-
-    (eh_predador(X, A) -> 
-    	write(X), write(' --> ');
-    	write(X), write(' --> '), writeln(' não tem presa.'), fail),
-    cadeia_alimentar(A).
+cadeia_alimentar(Predador):-
+	(come(Predador, Presa) -> 
+    	write(Predador), write(' --> ');
+    	write(Predador), write(' --> '), writeln(' não tem presa.'), fail),
+    cadeia_alimentar(Presa).
+    
+cadeia_alimentar_2_param(Predador, Presa):-
+	come(Predador, Presa),
+    write(Predador), write(' --> '), writeln(Presa).
+	
+cadeia_alimentar_2_param(Predador, Presa2):-
+    come(Predador, Presa),
+    cadeia_alimentar(Presa, Presa2).
