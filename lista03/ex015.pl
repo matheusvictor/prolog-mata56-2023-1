@@ -7,7 +7,7 @@ progenitor(jose, julia).
 progenitor(jose, iris).
 progenitor(iris, jorge).
 
-% ex. 10
+%ex.10
 eh_ancestral(Fulano, Cicrano) :-
     progenitor(Fulano, Cicrano).
 
@@ -22,7 +22,7 @@ eh_descendente(Fulano, Cicrano) :-
     eh_ancestral(Cicrano, Beltrano),
     eh_ancestral(Beltrano, Fulano).
 
-% ex. 15
+%ex.15
 listar_ancestrais(Pessoa) :-
     findall(Ancestral, eh_ancestral(Ancestral,Pessoa), ListaAncestrais),
     write(ListaAncestrais).
